@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nhom3\\MVC\\MVC.csproj": {}
+    "D:\\Nhom3\\QLSV\\QLSV.csproj": {}
   },
   "projects": {
-    "D:\\Nhom3\\MVC\\MVC.csproj": {
+    "D:\\Nhom3\\QLSV\\QLSV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nhom3\\MVC\\MVC.csproj",
-        "projectName": "MVC",
-        "projectPath": "D:\\Nhom3\\MVC\\MVC.csproj",
+        "projectUniqueName": "D:\\Nhom3\\QLSV\\QLSV.csproj",
+        "projectName": "QLSV",
+        "projectPath": "D:\\Nhom3\\QLSV\\QLSV.csproj",
         "packagesPath": "C:\\Users\\CHAO MAI ANH\\.nuget\\packages\\",
-        "outputPath": "D:\\Nhom3\\MVC\\obj\\",
+        "outputPath": "D:\\Nhom3\\QLSV\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\CHAO MAI ANH\\AppData\\Roaming\\NuGet\\NuGet.Config"

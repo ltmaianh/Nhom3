@@ -1,4 +1,4 @@
-namespace MVC.Models;
+namespace QLSV.Models;
 
 public class ErrorViewModel
 {
