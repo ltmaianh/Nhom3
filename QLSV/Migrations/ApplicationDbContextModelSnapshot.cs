@@ -27,7 +27,7 @@ namespace QLSV.Migrations
 
                     b.HasKey("Makhoa");
 
-                    b.ToTable("Khoa");
+                    b.ToTable("Khoa", (string)null);
                 });
 
             modelBuilder.Entity("QLSV.Models.Lop", b =>
@@ -41,7 +41,7 @@ namespace QLSV.Migrations
 
                     b.HasKey("Malop");
 
-                    b.ToTable("Lop");
+                    b.ToTable("Lop", (string)null);
                 });
 
             modelBuilder.Entity("QLSV.Models.SinhVien", b =>
@@ -68,7 +68,7 @@ namespace QLSV.Migrations
 
                     b.HasIndex("Malop");
 
-                    b.ToTable("SinhVien");
+                    b.ToTable("SinhVien", (string)null);
                 });
 
             modelBuilder.Entity("QLSV.Models.SinhVien", b =>
