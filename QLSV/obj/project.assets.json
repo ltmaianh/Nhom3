@@ -8011,7 +8011,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Van Anh\\.nuget\\packages\\": {}
+    "C:\\Users\\CHAO MAI ANH\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -8019,11 +8019,11 @@
       "projectUniqueName": "D:\\Nhom3\\QLSV\\QLSV.csproj",
       "projectName": "QLSV",
       "projectPath": "D:\\Nhom3\\QLSV\\QLSV.csproj",
-      "packagesPath": "C:\\Users\\Van Anh\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\CHAO MAI ANH\\.nuget\\packages\\",
       "outputPath": "D:\\Nhom3\\QLSV\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Van Anh\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\CHAO MAI ANH\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
