@@ -1,0 +1,47 @@
+@model IEnumerable<QLSV.Models.Diem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenMH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiemMH)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenMH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiemMH)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaSV">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaSV">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaSV">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
