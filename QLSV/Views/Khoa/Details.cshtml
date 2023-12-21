@@ -3,22 +3,31 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h1>Details</h1>
+<form class="w3-container w3-card-4 w3-light-grey w3-margin" style="width:50%;">
+<h1>Chi Tiết Thông Tin</h1>
 
 <div>
-    <h4>Khoa</h4>
-    <hr />
+    
+    
     <dl class="row">
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Makhoa)
+        </dt>
+         <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Makhoa)
+        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Tenkhoa)
         </dt>
-        <dd class = "col-sm-10">
+         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Tenkhoa)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Makhoa">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="w3-margin-bottom">
+    <a class=" btn btn-primary " asp-action="Edit" asp-route-id="@Model?.Makhoa">Edit</a>
+    <a class="btn btn-success" asp-action="Index">Back to List</a>
 </div>
+</form>

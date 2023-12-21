@@ -3,20 +3,22 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+<form class="w3-container w3-card-4 w3-light-white  ">
+<h1 class="w3-center w3-text-black">Danh Sách Sinh Viên</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+     <a class="w3-btn w3-green w3-border w3-round" asp-action="Create">+ Thêm mới</a>
+    
 </p>
-<table class="table">
+
+<table class="w3-table w3-hoverable">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Hovaten)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                @Html.DisplayNameFor(model => model.DiaChi)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Lop)
@@ -24,7 +26,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Khoa)
             </th>
-            <th></th>
+            <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
@@ -34,7 +36,7 @@
                 @Html.DisplayFor(modelItem => item.Hovaten)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
+                @Html.DisplayFor(modelItem => item.DiaChi)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Lop.Malop)
@@ -43,11 +45,12 @@
                 @Html.DisplayFor(modelItem => item.Khoa.Makhoa)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MaSV">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MaSV">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MaSV">Delete</a>
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round "asp-action="Edit" asp-route-id="@item.MaSV"></a> 
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round "asp-action="Details" asp-route-id="@item.MaSV"></a> 
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round "asp-action="Delete" asp-route-id="@item.MaSV"></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</form>

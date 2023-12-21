@@ -10,7 +10,7 @@ namespace QLSV.Models
     public string? MaSV{get;set;}
     [Required(ErrorMessage = " không được để trống")]
     public string? Hovaten { get; set; }
-    public string? Address { get; set; }
+    public string? DiaChi { get; set; }
     
     public string? Malop { get; set; }
      [ForeignKey("Malop")]

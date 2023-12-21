@@ -15,3 +15,4 @@ namespace QLSV.Models
     public int Diem { get; set; }
 }
 }
+//Diem-QLDiem-QLMonhoc_CRUD

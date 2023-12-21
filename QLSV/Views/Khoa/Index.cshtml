@@ -3,33 +3,46 @@
 @{
     ViewData["Title"] = "Index";
 }
+<form class="w3-container w3-card w3-light-white w3-icon-green ">
 
-<h1>Index</h1>
+<h1 class="w3-center w3-text-black">Danh Sách Khoa</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="w3-btn w3-green w3-border w3-round" asp-action="Create">+ Thêm mới</a>
 </p>
-<table class="table">
+<table class="w3-table w3-hoverable">
     <thead>
         <tr>
+
+             <th>
+                @Html.DisplayNameFor(model => model.Makhoa)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Tenkhoa)
             </th>
-            <th></th>
+            <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Makhoa)
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Tenkhoa)
             </td>
+            
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Makhoa">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Makhoa">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Makhoa">Delete</a>
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round w3-text-center" asp-action="Edit" asp-route-id="@item.Makhoa"></a>
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round w3-text-center"asp-action="Details" asp-route-id="@item.Makhoa"></a> 
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round w3-text-center" asp-action="Delete"asp-route-id="@item.Makhoa"></a>
             </td>
         </tr>
+
 }
+</form>
     </tbody>
 </table>

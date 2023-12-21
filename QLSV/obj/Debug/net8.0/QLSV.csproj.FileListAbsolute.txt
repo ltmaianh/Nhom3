@@ -554,3 +554,7 @@ D:\Nhom3\QLSV\obj\Debug\net8.0\refint\QLSV.dll
 D:\Nhom3\QLSV\obj\Debug\net8.0\QLSV.pdb
 D:\Nhom3\QLSV\obj\Debug\net8.0\QLSV.genruntimeconfig.cache
 D:\Nhom3\QLSV\obj\Debug\net8.0\ref\QLSV.dll
+C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.dll
+C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.Interfaces.dll
+C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll

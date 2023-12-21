@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QLSV.Data;
 using QLSV.Models;
+using QLSV.Models.Process;
 
 namespace QLSV.Controllers
 {
@@ -18,12 +19,59 @@ namespace QLSV.Controllers
         {
             _context = context;
         }
+        private ExcelProcess _excelPro = new ExcelProcess();
 
         // GET: SinhVien
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.SinhVien.Include(s => s.Khoa).Include(s => s.Lop);
             return View(await applicationDbContext.ToListAsync());
+        }
+        // ACTION UPLOAD
+        public async Task<IActionResult> Upload()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+         public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file!=null)
+                {
+                    string fileExtension = Path.GetExtension(file.FileName);
+                    if (fileExtension != ".xls" && fileExtension != ".xlsx")
+                    {
+                        ModelState.AddModelError("", "Please choose excel file to upload!");
+                    }
+                    else
+                    {
+                        //rename file when upload to server
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Uploads/Excels", "File" + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Millisecond + fileExtension);
+                        var fileLocation = new FileInfo(filePath).ToString();
+                        if (file.Length > 0)
+                        {
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                //save file to server
+                                await file.CopyToAsync(stream);
+                                 var dt = _excelPro.ExcelToDataTable(fileLocation);
+                                for(int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var sv = new SinhVien();
+                                    sv.MaSV = dt.Rows[i][0].ToString();
+                                    sv.Hovaten = dt.Rows[i][1].ToString();
+                                    sv.DiaChi = dt.Rows[i][2].ToString();
+                                    sv.Malop = dt.Rows[i][3].ToString();
+                                    sv.Makhoa = dt.Rows[i][4].ToString();
+                                    _context.Add(sv);
+                                }
+                                await _context.SaveChangesAsync();
+                                return RedirectToAction(nameof(Index));
+                            }
+                        }
+                    }
+                }
+                return View();
         }
 
         // GET: SinhVien/Details/5
@@ -59,7 +107,7 @@ namespace QLSV.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaSV,Hovaten,Address,Malop,Makhoa")] SinhVien sinhVien)
+        public async Task<IActionResult> Create([Bind("MaSV,Hovaten,DiaChi,Malop,Makhoa")] SinhVien sinhVien)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +143,7 @@ namespace QLSV.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("MaSV,Hovaten,Address,Malop,Makhoa")] SinhVien sinhVien)
+        public async Task<IActionResult> Edit(string id, [Bind("MaSV,Hovaten,DiaChi,Malop,Makhoa")] SinhVien sinhVien)
         {
             if (id != sinhVien.MaSV)
             {

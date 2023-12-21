@@ -107,7 +107,7 @@ namespace QLSV.Migrations
                     b.Property<string>("MaSV")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("DiaChi")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Hovaten")

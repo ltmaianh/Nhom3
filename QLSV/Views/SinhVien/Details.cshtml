@@ -3,12 +3,11 @@
 @{
     ViewData["Title"] = "Details";
 }
+<form class="w3-container w3-card-4 w3-light-grey w3-margin" style="width:50%;" >
+<h1>Thông tin chi tiết</h1>
 
-<h1>Details</h1>
-
-<div>
-    <h4>SinhVien</h4>
-    <hr />
+<div class="w3-margin-top">
+    
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Hovaten)
@@ -17,10 +16,10 @@
             @Html.DisplayFor(model => model.Hovaten)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.DiaChi)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.DiaChi)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Lop)
@@ -36,7 +35,8 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.MaSV">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="w3-margin-bottom">
+    <a class=" btn btn-primary " asp-action="Edit" asp-route-id="@Model?.MaSV">Edit</a> 
+    <a class="btn btn-success" asp-action="Index">Back to List</a>
 </div>
+</form>

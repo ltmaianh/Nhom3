@@ -10,7 +10,7 @@ using QLSV.Data;
 namespace QLSV.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231125145728_Create_table_SinhVien")]
+    [Migration("20231221063540_Create_table_SinhVien")]
     partial class Create_table_SinhVien
     {
         /// <inheritdoc />
@@ -18,6 +18,25 @@ namespace QLSV.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
+
+            modelBuilder.Entity("QLSV.Models.Diem", b =>
+                {
+                    b.Property<string>("MaSV")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DiemMH")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TenMH")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TenSV")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("MaSV");
+
+                    b.ToTable("Diem");
+                });
 
             modelBuilder.Entity("QLSV.Models.Khoa", b =>
                 {
@@ -47,12 +66,51 @@ namespace QLSV.Migrations
                     b.ToTable("Lop");
                 });
 
+            modelBuilder.Entity("QLSV.Models.Quanlydiem", b =>
+                {
+                    b.Property<int>("Sothutu")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Diem")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MaSV")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TenSV")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Tenmonhoc")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Sothutu");
+
+                    b.ToTable("Quanlydiem");
+                });
+
+            modelBuilder.Entity("QLSV.Models.Quanlymonhoc", b =>
+                {
+                    b.Property<string>("Mamonhoc")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Tenmonhoc")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Mamonhoc");
+
+                    b.ToTable("Quanlymonhoc");
+                });
+
             modelBuilder.Entity("QLSV.Models.SinhVien", b =>
                 {
                     b.Property<string>("MaSV")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("DiaChi")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Hovaten")
