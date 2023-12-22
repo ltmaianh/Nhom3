@@ -20,7 +20,7 @@ namespace QLSV.Controllers
         }
 
         
-        // GET: Lop
+        // Search 
         public async Task<IActionResult> Index(string searchString)
         {
              

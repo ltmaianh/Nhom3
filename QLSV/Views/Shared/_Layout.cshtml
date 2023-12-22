@@ -15,45 +15,48 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 d-flex" style="background-color: #2196F3;">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">QLSV</a>
+                <a class="navbar-brand text-light " asp-area="" asp-controller="Home" asp-action="Index">QLSV</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse  collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li> *@
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Khoa" asp-action="Index">Khoa</a>
+                            <a class="nav-link text-light icon-bar fa fa-university " asp-area="" asp-controller="Khoa" asp-action="Index">Khoa</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Lop" asp-action="Index">Lớp</a>
+                            <a class="nav-link text-light icon-bar fa fa-users" asp-area="" asp-controller="Lop" asp-action="Index">Lớp</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="SinhVien" asp-action="Index">Sinh Viên</a>
+                            <a class="nav-link text-light icon-bar fa fa-graduation-cap" asp-area="" asp-controller="SinhVien" asp-action="Index">Sinh Viên</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link text-light icon-bar fa fa-folder-open" asp-area="" asp-controller="Quanlymonhoc" asp-action="Index">Quản lý môn học</a>
+                        </li>
+                         
                          <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Diem" asp-action="Index">Điểm</a>
+                            <a class="nav-link text-light icon-bar fa fa-book" asp-area="" asp-controller="Diem" asp-action="Index">Điểm</a>
                         </li>
 
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Quanlymonhoc" asp-action="Index">Quản lý môn học</a>
-                        </li>
 
                          <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Quanlydiem" asp-action="Index">Quản lý điểm</a>
+                            <a class="nav-link text-light icon-bar fa fa-folder-open" asp-area="" asp-controller="Quanlydiem" asp-action="Index">Quản lý điểm </a>
                         </li>
+
+                         
                     </ul>
                 </div>
             </div>
