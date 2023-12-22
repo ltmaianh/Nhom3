@@ -558,3 +558,7 @@ C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.dll
 C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.Interfaces.dll
 C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.System.Drawing.dll
 C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.dll
+D:\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\Nhom3\QLSV\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\Nhom3\QLSV\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
