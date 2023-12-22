@@ -3,10 +3,17 @@
 @{
     ViewData["Title"] = "Create";
 }
-<form class="w3-container w3-card-4 w3-light-grey w3-margin"  asp-action="Create">
 <h1>Thêm mới danh sách sinh viên</h1>
 
-</hr>
+<hr />
+    <form asp-action="Upload" enctype="multipart/form-data">
+        <div class="row form-control">
+            <label class="col-sm-2">Import data from Excel:</label>
+            <input type="file" name="file" class="col-sm-4">
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </div>
+    </form>
+<hr>
 
 
 <div class="mb-3">
@@ -45,7 +52,6 @@
 </div>
 
 
-</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
