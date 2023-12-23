@@ -3,12 +3,18 @@
 @{
     ViewData["Title"] = "Create";
 }
-<form class="w3-container w3-card-4 w3-light-gray w3-margin  " style="width:50%;" asp-action="Create">
+<div class="flex-container"> 
+    <form class="w3-container w3-card-4 w3-light-gray w3-margin  " style="width:50%;" asp-action="Create">
 <h1>Thêm mới thông tin điểm </h1>
-<hr />
-<div class="mb-3">
-    <div class="col-md-4">
+
+<div class="mb-3 ">
+    <div class="col-md-4 ">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Sothutu" class="control-label"></label>
+                <input asp-for="Sothutu" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="Sothutu" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="MaSV" class="control-label"></label>
                 <input asp-for="MaSV" class="w3-input w3-border w3-border-blue w3-round" />
@@ -38,6 +44,7 @@
 
 </form>
 
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

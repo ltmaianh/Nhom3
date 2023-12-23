@@ -3,12 +3,19 @@
 @{
     ViewData["Title"] = "Details";
 }
-<form class="w3-container w3-card-4 w3-light-grey w3-margin" style="width:50%;" >
+<div class="flex-container">
+    <form class="w3-container w3-card-4 w3-light-grey w3-margin" style="width:50%;" >
 <h1>Thông tin chi tiết</h1>
 
 <div class="w3-margin-top">
     
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MaSV)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaSV)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Hovaten)
         </dt>
@@ -40,3 +47,5 @@
     <a class="btn btn-success" asp-action="Index">Back to List</a>
 </div>
 </form>
+</div>
+

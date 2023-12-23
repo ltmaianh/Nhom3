@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<form class="w3-container  w3-light-grey "  style="width:50%;" asp-action="Edit">
+<div class="flex-container">
+    <form class="w3-container  w3-light-grey "  style="width:50%;" asp-action="Edit">
 <h1>Cập nhật thông tin </h1>
 
 
@@ -43,6 +43,8 @@
 
 
 </form>
+</div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

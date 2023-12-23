@@ -12,20 +12,26 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Mamonhoc)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Tenmonhoc)
             </th>
-            <th></th>
+            <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Mamonhoc)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Tenmonhoc)
             </td>
             <td>
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round" asp-action="Edit" asp-route-id="@item.Mamonhoc"></a> |
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round" asp-action="Details" asp-route-id="@item.Mamonhoc"></a> |
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round" asp-action="Edit" asp-route-id="@item.Mamonhoc"></a> 
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round" asp-action="Details" asp-route-id="@item.Mamonhoc"></a> 
                 <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round" asp-action="Delete" asp-route-id="@item.Mamonhoc"></a>
             </td>
         </tr>

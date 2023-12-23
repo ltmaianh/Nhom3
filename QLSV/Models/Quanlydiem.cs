@@ -4,7 +4,7 @@ namespace QLSV.Models
     public class Quanlydiem
     {
     [Key]
-    public int Sothutu{get;set;}
+    public int Sothutu {get;set;}
    
     [Required(ErrorMessage = "Mã sinh viên không được để trống")]
     public string? MaSV {get;set;}

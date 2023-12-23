@@ -3,16 +3,9 @@
 @{
     ViewData["Title"] = "Create";
 }
-    <h1>Thêm mới thông tin lớp</h1>
-    <hr />
-    <form asp-action="Upload" enctype="multipart/form-data">
-        <div class="row form-control">
-            <label class="col-sm-2">Import data from Excel:</label>
-            <input type="file" name="file" class="col-sm-4">
-            <input type="submit" value="Upload" class="btn btn-primary">
-        </div>
-    </form>
-<hr>
+<div class="flex-container">
+    <form class="w3-container w3-card-4 w3-light-gray w3-margin  " style="width:50%;" asp-action="Create">
+<h1>Thêm mới thông tin lớp </h1>
 
 <div class="mb-3">
     <div class="col-md-4">
@@ -34,6 +27,8 @@
             </div>
         
     </div>
+</div>
+</form>
 </div>
 
 @section Scripts {

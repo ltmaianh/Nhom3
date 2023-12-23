@@ -12,7 +12,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MaSV)
+                @Html.DisplayNameFor(model => model.Sothutu)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TenSV)
@@ -30,7 +30,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MaSV)
+                @Html.DisplayFor(modelItem => item.Sothutu)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TenSV)
@@ -42,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.Diem)
             </td>
             <td>
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round" asp-action="Edit" asp-route-id="@item.MaSV"></a> |
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round" asp-action="Details" asp-route-id="@item.MaSV"></a> |
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round" asp-action="Delete" asp-route-id="@item.MaSV"></a>
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round" asp-action="Edit" asp-route-id="@item.Sothutu"></a> 
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round" asp-action="Details" asp-route-id="@item.Sothutu"></a>
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round" asp-action="Delete" asp-route-id="@item.Sothutu"></a>
             </td>
         </tr>
 }
