@@ -22,10 +22,18 @@ namespace QLSV.Controllers
         private ExcelProcess _excelPro = new ExcelProcess();
 
         // GET: SinhVien
-        public async Task<IActionResult> Index()
+        //Action Search SV
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.SinhVien.Include(s => s.Khoa).Include(s => s.Lop);
-            return View(await applicationDbContext.ToListAsync());
+             
+            var SinhVien = from m in _context.SinhVien
+                select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                SinhVien = SinhVien.Where(s => s. MaSV!.Contains(searchString));
+                }
+            return View(await SinhVien.ToListAsync());
         }
         // ACTION UPLOAD
         public async Task<IActionResult> Upload()

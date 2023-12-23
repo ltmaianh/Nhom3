@@ -7,6 +7,8 @@
 <h1 class="w3-center w3-text-black">Danh Sách Sinh Viên</h1>
 
 <p>
+     Tìm kiếm: <input type="text" name="SearchString" class="w3-border w3-border-green w3-round  "/>
+        <input type="submit" value="Submit" class="w3-btn w3-green w3-border w3-round"/>
      <a class="w3-btn w3-green w3-border w3-round" asp-action="Create">+ Thêm mới</a>
       
     
@@ -15,6 +17,9 @@
 <table class="w3-table w3-hoverable">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaSV)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Hovaten)
             </th>
@@ -34,16 +39,19 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.MaSV)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Hovaten)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DiaChi)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lop.Malop)
+                @Html.DisplayFor(modelItem => item.Malop)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Khoa.Makhoa)
+                @Html.DisplayFor(modelItem => item.Makhoa)
             </td>
             <td>
                 <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round "asp-action="Edit" asp-route-id="@item.MaSV"></a> 
