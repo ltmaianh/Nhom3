@@ -3,48 +3,49 @@
 @{
     ViewData["Title"] = "Index";
 }
-<form class="w3-container w3-card w3-light-gray w3-icon-blue ">
-<h1 class="w3-center w3-text-black">Danh sách điểm</h1>
-<p>   
-     <a class="w3-btn w3-green w3-border w3-round" asp-action="Create">+ Thêm mới</a>
+<form class="w3-container w3-card-4 w3-light-white  ">
+<h1 class="w3-center w3-text-black">Danh Sách Điểm </h1>
+
+<p>
+    <a class="w3-btn w3-green w3-border w3-round" asp-action="Create">+ Thêm mới</a>
 </p>
 <table class="w3-table w3-hoverable">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Sothutu)
+                @Html.DisplayNameFor(model => model.Masv)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TenSV)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tenmonhoc)
+                @Html.DisplayNameFor(model => model.Monhoc)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Diem)
+                @Html.DisplayNameFor(model => model.DiemMH)
             </th>
-            <th></th>
+            <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Sothutu)
+                @Html.DisplayFor(modelItem => item.Masv.MaSV)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TenSV)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tenmonhoc)
+                @Html.DisplayFor(modelItem => item.Monhoc.Mamonhoc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Diem)
+                @Html.DisplayFor(modelItem => item.DiemMH)
             </td>
             <td>
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round" asp-action="Edit" asp-route-id="@item.Sothutu"></a> 
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round" asp-action="Details" asp-route-id="@item.Sothutu"></a>
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round" asp-action="Delete" asp-route-id="@item.Sothutu"></a>
+                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round " asp-action="Edit" asp-route-id="@item.Sothutu"></a> 
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round " asp-action="Details" asp-route-id="@item.Sothutu"></a> 
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round " asp-action="Delete" asp-route-id="@item.Sothutu"></a>
             </td>
         </tr>
 }

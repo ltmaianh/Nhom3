@@ -3,22 +3,16 @@
 @{
     ViewData["Title"] = "Create";
 }
-<div class="flex-container"> 
+<div class="flex-container">
     <form class="w3-container w3-card-4 w3-light-gray w3-margin  " style="width:50%;" asp-action="Create">
-<h1>Thêm mới thông tin điểm </h1>
-
-<div class="mb-3 ">
-    <div class="col-md-4 ">
+<h1>Thêm mới thông tin lớp </h1>
+<div class="mb-3">
+    <div class="col-md-4">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Sothutu" class="control-label"></label>
-                <input asp-for="Sothutu" class="w3-input w3-border w3-border-blue w3-round" />
-                <span asp-validation-for="Sothutu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="MaSV" class="control-label"></label>
-                <input asp-for="MaSV" class="w3-input w3-border w3-border-blue w3-round" />
-                <span asp-validation-for="MaSV" class="text-danger"></span>
+                <select asp-for="MaSV" class ="w3-input w3-border w3-border-blue w3-round" asp-items="ViewBag.MaSV"></select>
             </div>
             <div class="form-group">
                 <label asp-for="TenSV" class="control-label"></label>
@@ -26,25 +20,25 @@
                 <span asp-validation-for="TenSV" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tenmonhoc" class="control-label"></label>
-                <input asp-for="Tenmonhoc" class="w3-input w3-border w3-border-blue w3-round" />
-                <span asp-validation-for="Tenmonhoc" class="text-danger"></span>
+                <label asp-for="Mamonhoc" class="control-label"></label>
+                <select asp-for="Mamonhoc" class ="w3-input w3-border w3-border-blue w3-round" asp-items="ViewBag.Mamonhoc"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Diem" class="control-label"></label>
-                <input asp-for="Diem" class="w3-input w3-border w3-border-blue w3-round" />
-                <span asp-validation-for="Diem" class="text-danger"></span>
+                <label asp-for="DiemMH" class="control-label"></label>
+                <input asp-for="DiemMH" class="w3-input w3-border w3-border-blue w3-round" />
+                <span asp-validation-for="DiemMH" class="text-danger"></span>
             </div>
             <div class="w3-margin-top">
                 <input type="submit" value="Create" class="btn btn-primary" />
-                <a class="btn btn-success" asp-action="Index">Back to List</a>
+                 <a class="btn btn-success" asp-action="Index">Back to List</a>
             </div>
+        </form>
     </div>
 </div>
 
 </form>
-
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

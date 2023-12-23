@@ -4,30 +4,38 @@
     ViewData["Title"] = "Details";
 }
 <div class="flex-container">
-    <form class="w3-container w3-card-4 w3-light-grey " style="width:50%;" >
-<h2>Chi tiết thông tin</h2>
+    <form class="w3-container w3-card-4 w3-light-grey w3-margin" style="width:50%;" >
+<h1>Thông tin chi tiết</h1>
 
 <div>
-   
+    
     <dl class="row">
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Malop)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Malop)
         </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Tenlop)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Tenlop)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Khoa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Khoa.Makhoa)
+        </dd>
     </dl>
 </div>
 <div class="w3-margin-bottom">
-    <a class=" btn btn-primary " asp-action="Edit" asp-route-id="@Model?.Malop">Edit</a>
-    <a class=" btn btn-success " asp-action="Index">Back to List</a>
+    <a class="btn btn-primary"asp-action="Edit" asp-route-id="@Model?.Malop">Edit</a> 
+    <a class="btn btn-success"asp-action="Index">Back to List</a>
 </div>
-</form>
+ </form>
 </div>
-
+ 

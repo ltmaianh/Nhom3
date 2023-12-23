@@ -3,15 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-<form class="w3-container w3-card w3-light-white w3-icon-green ">
-<h1 class="w3-center w3-text-black">Danh sách lớp</h1>
+
+<form class="w3-container w3-card-4 w3-light-white  ">
+<h1 class="w3-center w3-text-black">Danh Sách Lớp</h1>
 
 <p>
-    Tìm kiếm: <input type="text" name="SearchString" class="w3-border w3-border-green w3-round  "/>
-        <input type="submit" value="Submit" class="w3-btn w3-green w3-border w3-round"/>
     <a class="w3-btn w3-green w3-border w3-round" asp-action="Create">+ Thêm mới</a>
 </p>
-
 <table class="w3-table w3-hoverable">
     <thead>
         <tr>
@@ -20,6 +18,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Tenlop)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Makhoa)
             </th>
             <th>Thao tác</th>
         </tr>
@@ -34,9 +35,12 @@
                 @Html.DisplayFor(modelItem => item.Tenlop)
             </td>
             <td>
-                <a class=" w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round" asp-action="Edit" asp-route-id="@item.Malop"></a> 
-                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round " asp-action="Details" asp-route-id="@item.Malop"></a> 
-                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round" asp-action="Delete" asp-route-id="@item.Malop"></a>
+                @Html.DisplayFor(modelItem => item.Makhoa)
+            </td>
+            <td>
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-edit w3-blue w3-border w3-round " asp-action="Edit" asp-route-id="@item.Malop"></a> 
+                <a class="w3-btn w3-margin-bottom w3-xlarge fa fa-info-circle w3-blue w3-border w3-round "asp-action="Details" asp-route-id="@item.Malop"></a>
+                <a class ="w3-btn w3-margin-bottom w3-xlarge fa fa-trash w3-blue w3-border w3-round" asp-action="Delete" asp-route-id="@item.Malop"></a>
             </td>
         </tr>
 }

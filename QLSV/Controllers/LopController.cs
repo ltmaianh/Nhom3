@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using QLSV.Data;
 using QLSV.Models;
 
-
 namespace QLSV.Controllers
 {
     public class LopController : Controller
@@ -20,23 +19,13 @@ namespace QLSV.Controllers
             _context = context;
         }
 
-        
-        // Search 
-        public async Task<IActionResult> Index(string searchString)
+        // GET: Lop
+        public async Task<IActionResult> Index()
         {
-             
-            var Lop = from m in _context.Lop
-                select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                Lop = Lop.Where(s => s. Malop!.Contains(searchString));
-                }
-            return View(await Lop.ToListAsync());
+            var applicationDbContext = _context.Lop.Include(l => l.Khoa);
+            return View(await applicationDbContext.ToListAsync());
         }
-         
-          
-       
+
         // GET: Lop/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -46,6 +35,7 @@ namespace QLSV.Controllers
             }
 
             var lop = await _context.Lop
+                .Include(l => l.Khoa)
                 .FirstOrDefaultAsync(m => m.Malop == id);
             if (lop == null)
             {
@@ -58,6 +48,7 @@ namespace QLSV.Controllers
         // GET: Lop/Create
         public IActionResult Create()
         {
+            ViewData["Makhoa"] = new SelectList(_context.Khoa, "Makhoa", "Makhoa");
             return View();
         }
 
@@ -66,7 +57,7 @@ namespace QLSV.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Malop,Tenlop")] Lop lop)
+        public async Task<IActionResult> Create([Bind("Malop,Tenlop,Makhoa")] Lop lop)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +65,7 @@ namespace QLSV.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Makhoa"] = new SelectList(_context.Khoa, "Makhoa", "Makhoa", lop.Makhoa);
             return View(lop);
         }
 
@@ -90,6 +82,7 @@ namespace QLSV.Controllers
             {
                 return NotFound();
             }
+            ViewData["Makhoa"] = new SelectList(_context.Khoa, "Makhoa", "Makhoa", lop.Makhoa);
             return View(lop);
         }
 
@@ -98,7 +91,7 @@ namespace QLSV.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Malop,Tenlop")] Lop lop)
+        public async Task<IActionResult> Edit(string id, [Bind("Malop,Tenlop,Makhoa")] Lop lop)
         {
             if (id != lop.Malop)
             {
@@ -125,6 +118,7 @@ namespace QLSV.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Makhoa"] = new SelectList(_context.Khoa, "Makhoa", "Makhoa", lop.Makhoa);
             return View(lop);
         }
 
@@ -137,6 +131,7 @@ namespace QLSV.Controllers
             }
 
             var lop = await _context.Lop
+                .Include(l => l.Khoa)
                 .FirstOrDefaultAsync(m => m.Malop == id);
             if (lop == null)
             {

@@ -22,7 +22,8 @@ namespace QLSV.Controllers
         // GET: Quanlydiem
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Quanlydiem.ToListAsync());
+            var applicationDbContext = _context.Quanlydiem.Include(q => q.Masv).Include(q => q.Monhoc);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Quanlydiem/Details/5
@@ -34,6 +35,8 @@ namespace QLSV.Controllers
             }
 
             var quanlydiem = await _context.Quanlydiem
+                .Include(q => q.Masv)
+                .Include(q => q.Monhoc)
                 .FirstOrDefaultAsync(m => m.Sothutu == id);
             if (quanlydiem == null)
             {
@@ -46,6 +49,8 @@ namespace QLSV.Controllers
         // GET: Quanlydiem/Create
         public IActionResult Create()
         {
+            ViewData["MaSV"] = new SelectList(_context.SinhVien, "MaSV", "MaSV");
+            ViewData["Mamonhoc"] = new SelectList(_context.Quanlymonhoc, "Mamonhoc", "Mamonhoc");
             return View();
         }
 
@@ -54,7 +59,7 @@ namespace QLSV.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Sothutu,MaSV,TenSV,Tenmonhoc,Diem")] Quanlydiem quanlydiem)
+        public async Task<IActionResult> Create([Bind("Sothutu,MaSV,TenSV,Mamonhoc,DiemMH")] Quanlydiem quanlydiem)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +67,8 @@ namespace QLSV.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["MaSV"] = new SelectList(_context.SinhVien, "MaSV", "MaSV", quanlydiem.MaSV);
+            ViewData["Mamonhoc"] = new SelectList(_context.Quanlymonhoc, "Mamonhoc", "Mamonhoc", quanlydiem.Mamonhoc);
             return View(quanlydiem);
         }
 
@@ -78,6 +85,8 @@ namespace QLSV.Controllers
             {
                 return NotFound();
             }
+            ViewData["MaSV"] = new SelectList(_context.SinhVien, "MaSV", "MaSV", quanlydiem.MaSV);
+            ViewData["Mamonhoc"] = new SelectList(_context.Quanlymonhoc, "Mamonhoc", "Mamonhoc", quanlydiem.Mamonhoc);
             return View(quanlydiem);
         }
 
@@ -86,7 +95,7 @@ namespace QLSV.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Sothutu,MaSV,TenSV,Tenmonhoc,Diem")] Quanlydiem quanlydiem)
+        public async Task<IActionResult> Edit(int id, [Bind("Sothutu,MaSV,TenSV,Mamonhoc,DiemMH")] Quanlydiem quanlydiem)
         {
             if (id != quanlydiem.Sothutu)
             {
@@ -113,6 +122,8 @@ namespace QLSV.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["MaSV"] = new SelectList(_context.SinhVien, "MaSV", "MaSV", quanlydiem.MaSV);
+            ViewData["Mamonhoc"] = new SelectList(_context.Quanlymonhoc, "Mamonhoc", "Mamonhoc", quanlydiem.Mamonhoc);
             return View(quanlydiem);
         }
 
@@ -125,6 +136,8 @@ namespace QLSV.Controllers
             }
 
             var quanlydiem = await _context.Quanlydiem
+                .Include(q => q.Masv)
+                .Include(q => q.Monhoc)
                 .FirstOrDefaultAsync(m => m.Sothutu == id);
             if (quanlydiem == null)
             {

@@ -4,26 +4,33 @@
     ViewData["Title"] = "Delete";
 }
 <div class="flex-container">
-    <form class="w3-container w3-card w3-light-grey  style="width:50%;" asp-action="Delete">
-    <h1>Xóa thông tin về lớp</h1>
+    <form class="w3-container w3-card-4 w3-light-grey w3-margin "  style="width:50%;"  asp-action="Delete">
+<h1>Xóa thông tin lớp</h1>
 
 
 <div class="w3-margin-bottom">
-    <dl class="mb-3">
+    
+
+    <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Tenlop)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Tenlop)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Khoa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Khoa.Makhoa)
+        </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Malop" />
-        <input type="submit" value="Delete" class="btn btn-danger" />
-        <a class="btn btn-success"asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a class ="btn btn-success" asp-action="Index">Back to List</a>
     </form>
 </div>
 </form>
 </div>
-

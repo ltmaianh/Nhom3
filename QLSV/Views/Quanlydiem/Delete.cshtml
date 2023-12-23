@@ -5,16 +5,17 @@
 }
 <div class="flex-container">
     <form class="w3-container w3-card-4 w3-light-grey w3-margin "  style="width:50%;"  asp-action="Delete">
-<h1>Xóa thông tin sinh viên</h1>
+<h1>Xóa điểm </h1>
+
 
 <div class="w3-margin-bottom">
     
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaSV)
+            @Html.DisplayNameFor(model => model.Masv)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaSV)
+            @Html.DisplayFor(model => model.Masv.MaSV)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TenSV)
@@ -23,25 +24,26 @@
             @Html.DisplayFor(model => model.TenSV)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tenmonhoc)
+            @Html.DisplayNameFor(model => model.Monhoc)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tenmonhoc)
+            @Html.DisplayFor(model => model.Monhoc.Mamonhoc)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Diem)
+            @Html.DisplayNameFor(model => model.DiemMH)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Diem)
+            @Html.DisplayFor(model => model.DiemMH)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Sothutu" />
         <input type="submit" value="Delete" class="btn btn-danger" /> 
-        <a class="btn btn-success"asp-action="Index">Back to List</a>
+        <a class="btn btn-success" asp-action="Index">Back to List</a>
     </form>
 </div>
 </form>
+
 </div>
 

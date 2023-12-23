@@ -26,26 +26,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Admin\Downloads\Nhom3\QLSV
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/Downloads/Nhom3/QLSV/Views/Diem/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGllbVxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Downloads/Nhom3/QLSV/Views/Diem/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGllbVxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Downloads/Nhom3/QLSV/Views/Diem/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGllbVxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Downloads/Nhom3/QLSV/Views/Diem/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGllbVxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/Downloads/Nhom3/QLSV/Views/Diem/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGllbVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/Downloads/Nhom3/QLSV/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
