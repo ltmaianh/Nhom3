@@ -566,3 +566,7 @@ D:\Nhom3\QLSV\bin\Debug\net8.0\JetBrains.Annotations.dll
 D:\Nhom3\QLSV\bin\Debug\net8.0\X.PagedList.dll
 D:\Nhom3\QLSV\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
 D:\Nhom3\QLSV\obj\Debug\net8.0\QLSV.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\JetBrains.Annotations.dll
+C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\Admin\Downloads\Nhom3\QLSV\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+C:\Users\Admin\Downloads\Nhom3\QLSV\obj\Debug\net8.0\QLSV.MvcApplicationPartsAssemblyInfo.cs

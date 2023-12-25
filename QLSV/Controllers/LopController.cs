@@ -20,12 +20,18 @@ namespace QLSV.Controllers
         }
 
         // GET: Lop
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Lop.Include(l => l.Khoa);
-            return View(await applicationDbContext.ToListAsync());
-        }
+             
+            var Lop = from m in _context.Lop
+                select m;
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Lop = Lop.Where(s => s. Malop!.Contains(searchString));
+                }
+            return View(await Lop.ToListAsync());
+        }
         // GET: Lop/Details/5
         public async Task<IActionResult> Details(string id)
         {
