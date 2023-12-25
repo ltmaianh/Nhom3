@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using QLSV.Data;
 using QLSV.Models;
 using QLSV.Models.Process;
@@ -81,7 +82,23 @@ namespace QLSV.Controllers
                 }
                 return View();
         }
-
+         public IActionResult Download()
+        {
+            var fileName = "SinhVienList.xlsx";
+            using(ExcelPackage excelPackage = new ExcelPackage())
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+                excelWorksheet.Cells["A1"].Value = "MaSV";
+                excelWorksheet.Cells["B1"].Value = "Hovaten";
+                excelWorksheet.Cells["C1"].Value = "DiaChi";
+                excelWorksheet.Cells["D1"].Value = "Malop";
+                excelWorksheet.Cells["E1"].Value = "MaKhoa";
+                var SinhVienList = _context.SinhVien.ToList();
+                excelWorksheet.Cells["A2"].LoadFromCollection(SinhVienList);
+                var stream = new MemoryStream(excelPackage.GetAsByteArray());
+                return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
+            }
+        }
         // GET: SinhVien/Details/5
         public async Task<IActionResult> Details(string id)
         {
