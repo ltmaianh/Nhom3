@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using QLSV.Data;
 using QLSV.Models;
+using QLSV.Models.Process;
 
 namespace QLSV.Controllers
 {
@@ -19,12 +21,78 @@ namespace QLSV.Controllers
             _context = context;
         }
 
+         private ExcelProcess _excelPro = new ExcelProcess();
+
         // GET: Quanlydiem
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Quanlydiem.Include(q => q.Masv).Include(q => q.Monhoc);
             return View(await applicationDbContext.ToListAsync());
         }
+          public async Task<IActionResult> Upload()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+         public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file!=null)
+                {
+                    string fileExtension = Path.GetExtension(file.FileName);
+                    if (fileExtension != ".xls" && fileExtension != ".xlsx")
+                    {
+                        ModelState.AddModelError("", "Please choose excel file to upload!");
+                    }
+                    else
+                    {
+                        //rename file when upload to server
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Uploads/Excels", "File" + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Millisecond + fileExtension);
+                        var fileLocation = new FileInfo(filePath).ToString();
+                        if (file.Length > 0)
+                        {
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                //save file to server
+                                await file.CopyToAsync(stream);
+                                 var dt = _excelPro.ExcelToDataTable(fileLocation);
+                                for(int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    var qld = new Quanlydiem();
+                                    qld.Sothutu = Convert.ToInt32(dt.Rows[i][0].ToString());
+                                    qld.MaSV = dt.Rows[i][1].ToString();
+                                    qld.TenSV = dt.Rows[i][2].ToString();
+                                    qld.Mamonhoc = dt.Rows[i][3].ToString();
+                                    qld.DiemMH = dt.Rows[i][4].ToString();
+                                    _context.Add(qld);
+                                }
+                                await _context.SaveChangesAsync();
+                                return RedirectToAction(nameof(Index));
+                            }
+                        }
+                    }
+                }
+                return View();
+        }
+
+             public IActionResult Download()
+        {
+            var fileName = "QuanlydiemList.xlsx";
+            using(ExcelPackage excelPackage = new ExcelPackage())
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");
+                excelWorksheet.Cells["A1"].Value = "Sothutu";
+                excelWorksheet.Cells["B1"].Value = "MaSV";
+                excelWorksheet.Cells["C1"].Value = "TenSV";
+                excelWorksheet.Cells["D1"].Value = "Mamonhoc";
+                excelWorksheet.Cells["E1"].Value = "DiemMH";
+                var QuanlydiemList = _context.Quanlydiem.ToList();
+                excelWorksheet.Cells["A2"].LoadFromCollection(QuanlydiemList);
+                var stream = new MemoryStream(excelPackage.GetAsByteArray());
+                return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
+            }
+        }
+
 
         // GET: Quanlydiem/Details/5
         public async Task<IActionResult> Details(int? id)
