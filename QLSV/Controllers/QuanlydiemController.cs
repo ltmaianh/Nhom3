@@ -9,6 +9,7 @@ using OfficeOpenXml;
 using QLSV.Data;
 using QLSV.Models;
 using QLSV.Models.Process;
+using X.PagedList;
 
 namespace QLSV.Controllers
 {
@@ -23,11 +24,22 @@ namespace QLSV.Controllers
 
          private ExcelProcess _excelPro = new ExcelProcess();
 
-        // GET: Quanlydiem
-        public async Task<IActionResult> Index()
+     
+        public async Task<IActionResult> Index(int? page, int? PageSize)
         {
-            var applicationDbContext = _context.Quanlydiem.Include(q => q.Masv).Include(q => q.Monhoc);
-            return View(await applicationDbContext.ToListAsync());
+            ViewBag.PageSize = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value="3", Text="3"},
+                new SelectListItem() { Value="5", Text="5"},
+                new SelectListItem() { Value="10", Text="10"},
+                new SelectListItem() { Value="15", Text="15"},
+                new SelectListItem() { Value="25", Text="25"},
+                new SelectListItem() { Value="50", Text="50"},
+            };
+            int pagesize = (PageSize ?? 3);
+            ViewBag.psize = pagesize;
+            var model = _context.Quanlydiem.ToList().ToPagedList(page ?? 1, pagesize);
+            return View(model);
         }
           public async Task<IActionResult> Upload()
         {
