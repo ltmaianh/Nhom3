@@ -3,21 +3,18 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<form asp-action="Upload" enctype="multipart/form-data" class="mt-4">
-    <div class="form-row align-items-center">
-        <label for="fileInput" class="col-sm-2 col-form-label text-start" style="color: #3498db;">Choose Excel file:</label>
-        <div class="col-sm-7">
-            <input type="file" class="form-control-file" id="fileInput" name="file">
+<div class="w3-container w3-card-4 w3-light-grey w3-margin">
+<h1>Thêm mới danh sách điểm </h1>
+<form asp-action="Upload" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="col-sm-2">Import data from Excel:</label>
+            <input type="file" name="file" class="col-sm-2">
+            <input type="submit" value="Upload" class="btn btn-primary">
         </div>
-        <div class="col-sm-3">
-            <button type="submit" class="btn btn-primary" style="background-color: #3498db; border-color: #3498db;">Upload</button>
-        </div>
-    </div>
 </form>
 
 
-<div class="row">
+<div class="mb-3">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -45,6 +42,8 @@
             </div>
         </form>
     </div>
+</div>
+
 </div>
 
 
